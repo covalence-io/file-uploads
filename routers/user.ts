@@ -16,7 +16,11 @@ export default function users() {
         })
         .post('/avatar', uploads.single('avatar'), (req, res, next) => {
             if (!!req.file) {
-                res.send(generateDoc(req.file.filename));
+                res.json({
+                    url: `/uploads/${req.file.filename}`,
+                });
+            } else {
+                next(new Error('No file found'));
             }
         });
 

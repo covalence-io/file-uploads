@@ -106,3 +106,5 @@ dist
 # JS files
 *.js
 *.js.map
+
+public/uploads
